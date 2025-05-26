@@ -1,25 +1,34 @@
-from flask import render_template
 from app import app
+from flask import render_template, redirect, url_for, request
+from app.forms import ExtractionForm
 
 @app.route("/")  
-@app.route("/<name>")  
-def greeting(name = "World"):
+def index():
     return render_template("index.html")
 
 @app.route("/extract")  
-def extract(name = "World"):
-    return render_template("extract.html")
+def render_form():
+    form = ExtractionForm()
+    return render_template("extract.html", form = form)
 
-@app.route("/extract")  
-def products(name = "World"):
+@app.route("/extract", methods=['POST'])  
+def extract():
+    form = ExtractionForm(request.form)
+    if form.validate():
+        product_id = form.product_id.data
+        return redirect(url_for('product',product_id = product_id))
+    return render_template('extract', form=form)
+
+@app.route("/products")
+def products():
     return render_template("products.html")
 
-@app.route("/product/<product_id>")  
-def product(name = "World"):
-    return render_template("product.html")
+@app.route("/product/<product_id>")
+def product(product_id):
+    return render_template("product.html", product_id=product_id)
 
 @app.route("/about")  
-def about(name = "World"):
+def about():
     return render_template("about.html")
 
 
