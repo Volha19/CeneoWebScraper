@@ -17,7 +17,7 @@ def extract():
     if form.validate():
         product_id = form.product_id.data
         return redirect(url_for('product',product_id = product_id))
-    return render_template('extract', form=form)
+    return render_template('extract.html', form=form)
 
 @app.route("/products")
 def products():
