@@ -1,0 +1,49 @@
+{
+    "product_id": "58895624",
+    "product_name": "Szczoteczka elektryczna Seysso Baby Penguin",
+    "stats": {
+        "opinions_count": 10,
+        "pros_count": 6,
+        "cons_count": 0,
+        "pros_cons_count": 0,
+        "average_rate": 4.95,
+        "pros": {
+            "ease of cleaning": 5,
+            "convenience of use": 4,
+            "volume of work": 4,
+            "nice look": 3,
+            "easy to use": 3,
+            "profiled": 2,
+            "price": 2,
+            "matched to tiny handles": 2,
+            "Protection against battery getting out": 2,
+            "backlight": 2,
+            "Very good lies in the hands of the child": 1,
+            "The child is interested in washing": 1,
+            "The light allows you to see your teeth": 1,
+            "The light helps parents and encourages today": 1,
+            "workmanship": 1,
+            "Effective cleaning": 1,
+            "Charging with a regular battery": 1
+        },
+        "cons": {},
+        "recommendations": {
+            "false": 0,
+            "true": 10,
+            "NaN": 0
+        },
+        "stars": {
+            "0.0": 0,
+            "0.5": 0,
+            "1.0": 0,
+            "1.5": 0,
+            "2.0": 0,
+            "2.5": 0,
+            "3.0": 0,
+            "3.5": 0,
+            "4.0": 0,
+            "4.5": 1,
+            "5.0": 9
+        }
+    }
+}

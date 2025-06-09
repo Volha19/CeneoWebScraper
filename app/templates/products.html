@@ -1,5 +1,24 @@
 {% extends "base.html" %}
 {% block title %}Products List {% endblock %}
 {% block content %}
+<div class="container">
+  <div class="row">
+    {% for product in products %}
+      <div class="col-12">
+        <h5><a href="{{url_for('index')}}">{{product.product_name}}</a></h5>
+        <p>Number of opinions: {{ product.stats["opinions_count"] }}</p>
+        <p>Number of disadvantages (opinions): {{ product.stats["pros_count"] }}</p>
+        <p>Number of advantages (opinions): {{ product.stats["cons_count"]}}</p>
+        <p>Average score: {{ product.stats["average_rate"] }}</p>
 
+      </div>
+    {% else %}
+      <div class="col-12">
+        <div class="alert alert-info">
+          No products found. Start by extracting some product reviews.
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
