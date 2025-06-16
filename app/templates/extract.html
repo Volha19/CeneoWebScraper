@@ -1,24 +1,27 @@
 {% extends "base.html" %}
 {% block title %}Opinions extraction{% endblock %}
 {% block content %}
-    <form action="{{url_for('extract')}}" method="post">
-        <div>
-        {% if form.product_id.errors %}
-            <ul class="errors">{% for error in form.product_id.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+<div class="container">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">  
+      <form action="{{url_for('extract')}}" method="post" class="bg-white p-4 rounded shadow-sm">
+        <div class="mb-3">
+          {{ form.product_id.label(class="form-label fw-bold") }}
+          {{ form.product_id(class="form-control" + (' is-invalid' if form.product_id.errors else ''), 
+                          style="max-width: 100%") }}  
+          {% if form.product_id.errors %}
+            <div class="invalid-feedback">
+              {% for error in form.product_id.errors %}
+                {{ error }}<br>
+              {% endfor %}
+            </div>
+          {% else %}
+          {% endif %}
         </div>
-        <div>
-            {{form.product_id.label}}
+        
+        <div class="d-grid">
+          {{ form.submit(class="btn btn-primary py-2") }}  
         </div>
-        <div>
-            {{form.product_id}}
-        </div>
-        <div>
-            {{form.submit}}
-        </div>
-    </form>
-
+      </form>
+    </div>
+</div>
 {% endblock %}

@@ -1,3 +1,57 @@
 h1{
     color:rgb(150, 102, 194)
 }
+a {
+    color: rgb(150, 102, 194);
+    text-decoration: none; 
+}
+
+a:hover {
+    color: rgb(174, 119, 212);
+}
+
+button, .btn{
+    background-color: rgb(186, 174, 216);
+    color: black; 
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover, .btn:hover{
+background-color: #d6a3ee;
+}
+button:active, .btn:active, .btn:first-child:active, .btn:focus, .btn:hover {
+background-color: #d6a3ee;
+}
+
+input[type="submit"] {
+  background-color: rgb(192, 192, 214);
+  color: black;
+  border: none;
+  padding: 10px 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #d6a3ee; 
+  color: white;
+}
+table{
+    font-size: 11px
+}
+.table-cell-content, .table-cell-pros, .table-cell-cons {
+  min-width: 150px;
+  max-width: 500px;
+  word-wrap: break-word;
+}
+th {
+  font-size: 12px;
+}
+td > ol,td > ul {
+  margin-bottom: 0;
+}

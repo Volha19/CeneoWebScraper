@@ -1,5 +1,85 @@
 {% extends "base.html" %}
 {% block title %} {{product_id}} {% endblock %}
 {% block content %}
+<div class="table-responsive">
+    <table data-toggle="table" 
+            data-search="true" 
+            data-filter-control="true">
+        <thead>
+            <tr>
+                <th data-field="id" data-sortable="true" data-filter-control="input">ID</th>
+                <th data-field="author" data-sortable="true" data-filter-control="input">Author</th>
+                <th data-field="recommended" data-sortable="true" data-filter-control="select">Recommended</th>
+                <th data-field="stars" data-sortable="true" data-filter-control="select">Stars</th>
+                <th data-field="content" data-sortable="true" data-filter-control="input">Content</th>
+                <th data-field="advantages" data-sortable="true" data-filter-control="input">Advantages</th>
+                <th data-field="disadvantages" data-sortable="true" data-filter-control="input">Disadvantages</th>
+                <th data-field="agree" data-sortable="true" data-filter-control="input">Agree</th>
+                <th data-field="disagree" data-sortable="true" data-filter-control="input">Disagree</th>
+                <th data-field="published_date" data-sortable="true" data-filter-control="input">Published</th>
+                <th data-field="purchased_date" data-sortable="true" data-filter-control="input">Purchased</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for opinion in opinions %}
+            <tr>
+                <td>{{ opinion.opinion_id }}</td>
+                <td>{{ opinion.author }}</td>
+                <td>{{ opinion.recommendation }}</td>
+                <td>{{ opinion.stars }}</td>
+                <td class="table-cell-content">{{ opinion.content_en }}</td>
+                <td class="table-cell-pros ">
+                {% if opinion.pros_en %}
+                    <ul>
+                    {% for pro in opinion.pros_en %}
+                        <li>{{ pro }}</li>
+                    {% endfor %}
+                     </ul>
+                {% else %}
+                -
+                {% endif %}     
+                </td>
+                <td class="table-cell-cons">
+                {% if opinion.cons_en %}
+                    <ul>
+                    {% for con in opinion.cons_en %}
+                        <li>{{ con }}</li>
+                    {% endfor %}
+                     </ul>
+                {% else %}
+                -
+                {% endif %}   
+                </td>
+                <td>{{ opinion.vote_yes }}</td>
+                <td>{{ opinion.vote_no }}</td>
+                <td>{{ opinion.published}}</td>
+                <td>{{ opinion.purchased}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="container mt-4">
+    <div class="row g-3">
+        <div class="card-footer bg-transparent border-top-0 col-2">
+            <div class="dropdown">
+                <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="downloadDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Download
+                </button>
+                <ul class="dropdown-menu w-100" aria-labelledby="downloadDropdown">
+                    <li><a class="dropdown-item" href="{{ url_for('download_product', product_id=product_id, format='json') }}">JSON</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('download_product', product_id=product_id, format='csv') }}">CSV</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('download_product', product_id=product_id, format='xls') }}">Excel</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-footer bg-transparent border-0 col-2">
+            <a href="{{ url_for('charts', product_id=product_id) }}" 
+                class="btn btn-sm btn-primary ">
+            Charts</a>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

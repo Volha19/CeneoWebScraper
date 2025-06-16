@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} {{product_id}} {% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    Recommendation Distribution
+                </div>
+                <div class="card-body">
+                    <img src="{{ url_for('static', filename='charts/pie/' + product_id + '.png') }}" 
+                         class="img-fluid"
+                         alt="Recommendation pie chart">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Star Ratings Distribution
+                </div>
+                <div class="card-body">
+                    <img src="{{ url_for('static', filename='charts/bar/' + product_id + '.png') }}" 
+                         class="img-fluid" 
+                         alt="Star ratings bar chart">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

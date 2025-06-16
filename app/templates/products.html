@@ -1,24 +1,42 @@
 {% extends "base.html" %}
 {% block title %}Products List {% endblock %}
 {% block content %}
-<div class="container">
-  <div class="row">
-    {% for product in products %}
-      <div class="col-12">
-        <h5><a href="{{url_for('index')}}">{{product.product_name}}</a></h5>
-        <p>Number of opinions: {{ product.stats["opinions_count"] }}</p>
-        <p>Number of disadvantages (opinions): {{ product.stats["pros_count"] }}</p>
-        <p>Number of advantages (opinions): {{ product.stats["cons_count"]}}</p>
-        <p>Average score: {{ product.stats["average_rate"] }}</p>
-
-      </div>
-    {% else %}
-      <div class="col-12">
-        <div class="alert alert-info">
-          No products found. Start by extracting some product reviews.
+<div class="container mt-4">
+  <div class="row g-3">
+  {% for product in products %}
+    <div class="col-lg-4 col-md-6">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="{{url_for('product',product_id = product.product_id) }}" class="text-decoration-none">
+                {{product.product_name}}
+            </a>
+          </h5>
+          <div class="card-text">
+            <ul class="list-unstyled small">
+              <li>Opinions: {{ product.stats["opinions_count"] }}</li>
+              <li>Advantages: {{ product.stats["pros_count"] }}</li>
+              <li>Disadvantages: {{ product.stats["cons_count"] }}</li>
+              <li>Avg. score: {{ product.stats["average_rate"] | round(2) }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent border-top-0">
+            <div class="dropdown">
+                <button class="btn btn-sm btn-primary w-100 dropdown-toggle" type="button" id="downloadDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Download
+                </button>
+                <ul class="dropdown-menu w-100" aria-labelledby="downloadDropdown">
+                    <li><a class="dropdown-item" href="{{ url_for('download_product', product_id=product_id, format='json') }}">JSON</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('download_product', product_id=product_id, format='csv') }}">CSV</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('download_product', product_id=product_id, format='xls') }}">Excel</a></li>
+                </ul>
+            </div>
         </div>
       </div>
-    {% endfor %}
+    </div>
+  {% else %}
+  {% endfor %}
   </div>
 </div>
 {% endblock %}

@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{{url_for('static',filename="style.css")}}">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/extensions/filter-control/bootstrap-table-filter-control.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Ceneo Web Scraper</title>
 </head>
 <body>
@@ -15,7 +17,7 @@
     </header>
     <section class="container">
         <div class = "row">
-            <div class="col-3">
+            <div class="col-2">
                 <nav>
                     <ul>
                         <li><a href="{{url_for('index')}}">Home</a></li>
@@ -25,7 +27,7 @@
                     </ul>
                 </nav>
             </div> 
-            <div class="col-9">
+            <div class="col-10">
                 {% block content %}
                 {% endblock %}
             </div> 
@@ -34,8 +36,11 @@
     <footer class="container text-center">
         <p> Volha Hryshkevich, Krakow University of Economics </p>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.4/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
     {% block scripts %}
     {% endblock %}
 </body>
