@@ -6,7 +6,9 @@ import requests
 from bs4 import BeautifulSoup
 from config import headers
 from app.utils import extract_data, translate_data
-from matplotlib import pyplot as pit 
+import matplotlib
+matplotlib.use('Agg')
+from matplotlib import pyplot as plt
 from matplotlib.cm import get_cmap
 from matplotlib.colors import Normalize
 
@@ -103,38 +105,42 @@ class Product:
         self.stats["stars"] = opinions.stars.value_counts().reindex(list(np.arange(0,5.5,0.5)), fill_value=0).to_dict()
     
     def generate_charts(self):
-        if not os.path.exists("./app/data/charts"):
-            os.mkdir("./app/data/charts")
-        if not os.path.exists("./app/data/charts/pie"):
-            os.mkdir("./app/data/charts/pie")
-        if not os.path.exists("./app/data/charts/bar"):
-            os.mkdir("./app/data/charts/bar")
-        rec_values = [opinion.recommendation for opinion in self.opinions]
-        recommendations = pd.Series(rec_values).value_counts(dropna=False)
-        recommendations.plot.pie(
-            label = "",
-            labels = {"Not recommend","Recommend","No opinion"},
-            colors = ["#ca8be6","#efb0e9","#8fe7ed"],
-            autopct = lambda v: f"{v:.1f}%" if v > 0 else "",
-            title = f"Share of recommendaition for product {self.product_id}",
+        os.makedirs("./app/static/charts/pie", exist_ok=True)
+        os.makedirs("./app/static/charts/bar", exist_ok=True)
+        opinions = pd.DataFrame.from_dict([opinion.transform_to_dict() for opinion in self.opinions])
+        rec_series = opinions.recommendation.value_counts(dropna=False).reindex([False, True, np.nan], fill_value=0)
+        self.stats["recommendations"] = rec_series.to_dict()
+        rec_labels_map = {False: "Not recommend", True: "Recommend", np.nan: "No opinion"}
+        rec_labels = [rec_labels_map.get(key, str(key)) for key in rec_series.index]
+        rec_series.plot.pie(
+            labels=rec_labels,
+            colors=["#ca8be6", "#efb0e9", "#8fe7ed"],
+            autopct=lambda v: f"{v:.1f}%" if v > 0 else "",
+            title=f"Share of recommendation for product {self.product_id}",
+            label=""
         )
-        pit.savefig(f"./app/data/charts/pie/{self.product_id}.png")
-        pit.close()
-        star_values = [opinion.stars for opinion in self.opinions if hasattr(opinion, 'stars')]
-        rating_bins = list(np.arange(0, 5.5, 0.5))
-        stars = pd.Series(star_values).value_counts().reindex(rating_bins, fill_value=0)
-    
-        ax = stars.plot.bar(
-            xlabel = "Rate (number of starts in range 0 to 5)",
-            ylabel = "Count of rates(number of opnions)",
-            title = f"Number of opinions about the the product {self.product_id} with certain number of stars",
-            color = ["crimson" if x<3 else "forestgreen" if x> 3.5 else "silver" for x in stars.index]
+        plt.savefig(f"./app/static/charts/pie/{self.product_id}.png")
+        plt.close()
+        stars_series = opinions.stars.value_counts().reindex(np.arange(0, 5.5, 0.5), fill_value=0)
+        self.stats["stars"] = stars_series.to_dict()
+        colors = [
+            "#8dd3c7" if x < 2 else  
+            "#bebada" if x < 3 else 
+            "#fb8072" if x < 4 else
+            "#80b1d3" if x < 5 else  
+            "#bc80bd"               
+            for x in stars_series.index]
+        ax = stars_series.plot.bar(
+            xlabel="Rating (stars from 0 to 5)",
+            ylabel="Number of opinions",
+            title=f"Number of opinions about product {self.product_id} by star rating",
+            color=colors
         )
-        pit.xticks(rotation = 0)
+        plt.xticks(rotation=0)
         for container in ax.containers:
             ax.bar_label(container)
-        pit.savefig(f"./app/data/charts/bar/{self.product_id}.png")
-        pit.close()
+        plt.savefig(f"./app/static/charts/bar/{self.product_id}.png")
+        plt.close()
 
 class Opinion:
     selectors = {

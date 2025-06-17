@@ -1,0 +1,38 @@
+{
+    "product_id": "126880805",
+    "product_name": "Bestway Mata Piankowa Pod Basen 50X50cm 9 Szt. 58220",
+    "stats": {
+        "opinions_count": 3,
+        "pros_count": 1,
+        "cons_count": 2,
+        "pros_cons_count": 1,
+        "average_rate": 3.0,
+        "pros": {
+            "ease": 1,
+            "efficiency": 1
+        },
+        "cons": {
+            "effectiveness": 2,
+            "ease": 1,
+            "efficiency": 1
+        },
+        "recommendations": {
+            "false": 1,
+            "true": 1,
+            "NaN": 0
+        },
+        "stars": {
+            "0.0": 0,
+            "0.5": 1,
+            "1.0": 0,
+            "1.5": 0,
+            "2.0": 0,
+            "2.5": 0,
+            "3.0": 0,
+            "3.5": 1,
+            "4.0": 0,
+            "4.5": 0,
+            "5.0": 1
+        }
+    }
+}

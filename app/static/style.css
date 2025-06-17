@@ -55,3 +55,7 @@ th {
 td > ol,td > ul {
   margin-bottom: 0;
 }
+
+.card-header{
+  background-color: #d6a3ee;
+}

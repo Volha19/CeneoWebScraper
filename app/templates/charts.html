@@ -5,27 +5,32 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card mb-4">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header text-white">
                     Recommendation Distribution
                 </div>
                 <div class="card-body">
-                    <img src="{{ url_for('static', filename='charts/pie/' + product_id + '.png') }}" 
-                         class="img-fluid"
-                         alt="Recommendation pie chart">
+                    <img src="{{ url_for('static', filename='charts/pie/' + product_id + '.png') }}"
+                    class="img-fluid"
+                    alt="Recommendation pie chart">
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header text-white">
                     Star Ratings Distribution
                 </div>
                 <div class="card-body">
-                    <img src="{{ url_for('static', filename='charts/bar/' + product_id + '.png') }}" 
+                    <img src="{{ url_for('static', filename='charts/bar/' + product_id + '.png') }}"
                          class="img-fluid" 
                          alt="Star ratings bar chart">
                 </div>
             </div>
+        </div>
+        <div class="card-footer bg-transparent border-0 col-12 text-center">
+            <a href="{{ url_for('product', product_id=product_id) }}" 
+                class="btn btn-sm btn-primary ">
+            Product page</a>
         </div>
     </div>
 </div>

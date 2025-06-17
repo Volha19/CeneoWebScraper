@@ -2,7 +2,7 @@ from app import app
 import json
 import os
 import pandas as pd
-from flask import render_template, redirect, url_for, request, send_file, abort
+from flask import render_template, redirect, url_for, request, send_file, abort, send_from_directory
 from app.forms import ExtractionForm
 from app.models import Product
 
@@ -56,10 +56,16 @@ def product(product_id):
 
 @app.route("/product/<product_id>/charts")
 def charts(product_id):
-    product = Product(product_id)
-    product.import_opinions()
-    product.generate_charts()
-    return render_template("charts.html", product_id=product_id)
+    try:
+        product = Product(product_id)
+        product.import_opinions()
+        product.generate_charts()
+        if not product.opinions:
+            return "No opinions found for this product", 404
+        product.generate_charts()
+        return render_template("charts.html", product_id=product_id)
+    except Exception as e:
+        return f"Error generating charts: {e}", 500
 
 @app.route("/about")  
 def about():

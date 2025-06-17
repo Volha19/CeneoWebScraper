@@ -1,0 +1,68 @@
+[
+    {
+        "opinion_id": "17709288",
+        "author": "a...7",
+        "recommendation": null,
+        "stars": 3.5,
+        "content_pl": "Produkt spełnił moje oczekiwanie",
+        "pros_pl": [
+            "łatwość stosowania",
+            "wydajność"
+        ],
+        "cons_pl": [
+            "skuteczność"
+        ],
+        "vote_yes": 0,
+        "vote_no": 0,
+        "published": "2023-07-14 20:58:11",
+        "purchased": "2023-07-11 20:35:31",
+        "content_en": "The product met my expectation",
+        "pros_en": [
+            "ease",
+            "efficiency"
+        ],
+        "cons_en": [
+            "effectiveness"
+        ]
+    },
+    {
+        "opinion_id": "17573656",
+        "author": "p...7",
+        "recommendation": true,
+        "stars": 5.0,
+        "content_pl": "Produkt zgodny z opisem.",
+        "pros_pl": [],
+        "cons_pl": [],
+        "vote_yes": 0,
+        "vote_no": 0,
+        "published": "2023-06-02 07:53:25",
+        "purchased": "2023-05-19 16:20:36",
+        "content_en": "Product in accordance with the description.",
+        "pros_en": [],
+        "cons_en": []
+    },
+    {
+        "opinion_id": "17339354",
+        "author": "d...a",
+        "recommendation": false,
+        "stars": 0.5,
+        "content_pl": "Katastrofa. Do dzisiaj nie mam zamówionego towaru!!!!",
+        "pros_pl": [],
+        "cons_pl": [
+            "łatwość stosowania",
+            "skuteczność",
+            "wydajność"
+        ],
+        "vote_yes": 0,
+        "vote_no": 0,
+        "published": "2023-03-30 09:41:50",
+        "purchased": "2023-03-19 19:45:18",
+        "content_en": "Catastrophe. I still don't have ordered goods !!!!",
+        "pros_en": [],
+        "cons_en": [
+            "ease",
+            "effectiveness",
+            "efficiency"
+        ]
+    }
+]

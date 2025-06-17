@@ -1,0 +1,39 @@
+{
+    "product_id": "37612887",
+    "product_name": "Activa Szczypce Nożycowe Do Grilla Stal Chromowana 38cm",
+    "stats": {
+        "opinions_count": 2,
+        "pros_count": 1,
+        "cons_count": 1,
+        "pros_cons_count": 0,
+        "average_rate": 2.75,
+        "pros": {
+            "quality": 1,
+            "durability": 1,
+            "appearance": 1
+        },
+        "cons": {
+            "quality": 1,
+            "durability": 1,
+            "appearance": 1
+        },
+        "recommendations": {
+            "false": 1,
+            "true": 1,
+            "NaN": 0
+        },
+        "stars": {
+            "0.0": 0,
+            "0.5": 1,
+            "1.0": 0,
+            "1.5": 0,
+            "2.0": 0,
+            "2.5": 0,
+            "3.0": 0,
+            "3.5": 0,
+            "4.0": 0,
+            "4.5": 0,
+            "5.0": 1
+        }
+    }
+}

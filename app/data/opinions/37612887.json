@@ -1,0 +1,50 @@
+[
+    {
+        "opinion_id": "15481841",
+        "author": "k...8",
+        "recommendation": true,
+        "stars": 5.0,
+        "content_pl": "Produkt kupiony w okresie zimowym, więc brak możliwości przetestowania.",
+        "pros_pl": [
+            "jakość",
+            "trwałość",
+            "wygląd"
+        ],
+        "cons_pl": [],
+        "vote_yes": 0,
+        "vote_no": 0,
+        "published": "2021-12-31 08:12:22",
+        "purchased": "2021-12-13 11:09:23",
+        "content_en": "Product bought in winter, so there is no way to test.",
+        "pros_en": [
+            "quality",
+            "durability",
+            "appearance"
+        ],
+        "cons_en": []
+    },
+    {
+        "opinion_id": "14451508",
+        "author": "d...7",
+        "recommendation": false,
+        "stars": 0.5,
+        "content_pl": "..",
+        "pros_pl": [],
+        "cons_pl": [
+            "jakość",
+            "trwałość",
+            "wygląd"
+        ],
+        "vote_yes": 0,
+        "vote_no": 0,
+        "published": "2021-05-13 15:15:53",
+        "purchased": "2021-04-28 19:33:34",
+        "content_en": null,
+        "pros_en": [],
+        "cons_en": [
+            "quality",
+            "durability",
+            "appearance"
+        ]
+    }
+]

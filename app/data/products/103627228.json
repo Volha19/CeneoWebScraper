@@ -1,0 +1,35 @@
+{
+    "product_id": "103627228",
+    "product_name": "Bestway Namiot Do Basenów 58612",
+    "stats": {
+        "opinions_count": 6,
+        "pros_count": 0,
+        "cons_count": 1,
+        "pros_cons_count": 0,
+        "average_rate": 2.1666666666666665,
+        "pros": {},
+        "cons": {
+            "ease": 1,
+            "effectiveness": 1,
+            "efficiency": 1
+        },
+        "recommendations": {
+            "false": 4,
+            "true": 2,
+            "NaN": 0
+        },
+        "stars": {
+            "0.0": 0,
+            "0.5": 2,
+            "1.0": 2,
+            "1.5": 0,
+            "2.0": 0,
+            "2.5": 0,
+            "3.0": 0,
+            "3.5": 0,
+            "4.0": 0,
+            "4.5": 0,
+            "5.0": 2
+        }
+    }
+}
